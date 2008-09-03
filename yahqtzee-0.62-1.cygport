@@ -1,0 +1,16 @@
+inherit qt4-qmake
+
+DESCRIPTION="Qt4 Yahtzee game"
+HOMEPAGE="http://www.qt-apps.org/content/show.php/YahQtzee?content=88126"
+SRC_URI="http://www.qt-apps.org/CONTENT/content-files/88126-yahtzee.tar.gz"
+SRC_DIR="yahtzee"
+
+DISTCLEANFILES="Makefile *.o moc_* qrc_* ui_*"
+
+src_install() {
+	cd ${B}
+	newbin yahtzee.exe yahqtzee.exe
+
+	insinto /usr/share/qt4/translations
+	doins yahtzee_en.qm
+}
